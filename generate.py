@@ -47,3 +47,38 @@ def recursion_generate(n, i_num_start = 0):
     tmp_lst += recursion_generate(n-1, tmp_lst[-1]+1)
     
     return tmp_lst
+
+
+def dynamic_generate(n, res_lst = [0]):
+    '''
+        1. Bottom-up algorithm (Dynamic programming)
+        2. Cons: n is limited as the limit for python3's recursion is 1000 times
+        3. Pros: O(n)
+    '''
+    
+    if len(res_lst) == pow(2,n):
+        return res_lst
+        
+    res_lst.append(res_lst[-1]+1)
+    return dynamic_generate(n, res_lst)
+    
+def generate(n):
+    print("1. Dynamic programming version")
+    print("2. Top-down recursive version")
+    v = int(input("Type version... "))
+    while v not in [1, 2]:
+        print("Please type 1 or 2")
+        v = input("Type version... ")
+    
+    if v == 1:
+        print("returning list using dynamic programming function")
+        tmp = dynamic_generate(n)
+        for i in range(len(tmp)):
+            tmp[i] = decToBin(tmp[i], n)
+        return tmp
+    else:
+        print("returning list using top-down recursive function")
+        tmp = recursion_generate(n)
+        for i in range(len(tmp)):
+            tmp[i] = decToBin(tmp[i], n)
+        return tmp
