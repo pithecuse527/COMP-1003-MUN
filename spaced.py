@@ -9,17 +9,26 @@
 ##  return string with space
 ##  
 
-# as the function requires only one parmeter, use global var
-# or we can use a nested function... (will be more safe)
-walker = 1
-
 def spaced(s):
-    global walker
+    new_str = ""
     
-    if walker >= len(s):
-        walker = 1
+    if len(s) == 1:
         return s
     
-    s = s[:walker] + ' ' + s[walker:]
-    walker += 2
-    return spaced(s)
+    if len(s) == 2:
+        new_str = s[0] + ' ' +s[-1]
+        return new_str
+    
+    mid = len(s) // 2
+    is_even = len(s) % 2 == 0
+    
+    if is_even:
+        new_str += spaced(s[:mid])
+        new_str += ' '
+        new_str += spaced(s[mid:])
+    else:
+        new_str += spaced(s[:mid+1])
+        new_str += ' '
+        new_str += spaced(s[mid+1:])
+    
+    return new_str
