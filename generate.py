@@ -2,14 +2,14 @@
 
 ##  Assignment-201948932
 ##  
-##  Created by Hong Guen Ji on 24/05/20
+##  Created by Hong Geun Ji on 24/05/20
 ##  VIM - Vi IMproved 8.0
 ##  Copyright © 2020 Hong Geun Ji. All rights reserved.
 ##
 ##  Design and implement a recursive function called generate(), 
 ##  which generates all length-n strings of 0’s and 1’s, for a given non negative integer n. 
 ##  
-import time
+# import time
 
 ## ======================== from bindec.py (revised the return type) ======================== ##
 # converts decimal to a binary list of at least n digits
@@ -59,7 +59,7 @@ def dynamic_generate(n):
     '''
         1. Bottom-up algorithm (Dynamic programming)
         2. Cons: n is limited as the limit for python3's recursion is 1000 times
-        3. Pros: O(n)
+        3. Pros: Time complexity is O(n)
     '''
     res_lst = []
     
@@ -70,7 +70,7 @@ def dynamic_generate(n):
     res_lst += dynamic_generate(n-1)
     
     # append a element using the previous element
-    for i in range(pow(2, n) - len(res_lst)):
+    for i in range(pow(2, n) - len(res_lst)):   # index needs to be starts from pow(2, n)
         res_lst.append(res_lst[-1]+1)
     
     return res_lst
@@ -97,5 +97,5 @@ def generate(n):
             tmp[i] = decToBin(tmp[i], n)
         return tmp
 
-tm = generate(5)
-print(tm)
+# tm = generate(5)
+# print(tm)

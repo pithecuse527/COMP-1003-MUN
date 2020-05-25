@@ -2,7 +2,7 @@
 
 ##  Assignment-201948932
 ##  
-##  Created by Hong Guen Ji on 25/05/20
+##  Created by Hong Geun Ji on 25/05/20
 ##  VIM - Vi IMproved 8.0
 ##  Copyright © 2020 Hong Geun Ji. All rights reserved.
 ##
@@ -28,4 +28,4 @@ def generate(n, s):
     
     return False
 
-#print(generate(9, [0, 0, 1, 0, 0, 0, 7, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]))
+# print(generate(9, [0, 0, 1, 0, 0, 0, 7, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]))
