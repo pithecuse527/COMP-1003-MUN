@@ -10,22 +10,22 @@
 ##  and determines whether or not any subset of those integers can be summed to make n.
 ##  
 
-def generate(n, subset):
+def generate(n, s):
     '''
         Return boolean value for whether n can be made by subset
         Time complexity: O(n^2)
     '''
     
     # base case (if the recursive call reaches to the end, with subset containing single element)
-    if len(subset) == 1:
-        return n == subset[0]
+    if len(s) == 1:
+        return n == s[0]
     
     # case1: using the first element as part of n
-    if generate(n - subset[0], subset[1:]): return True
+    if generate(n - s[0], s[1:]): return True
     
     # case2: not using the first element as part of n
-    if generate(n, subset[1:]): return True
+    if generate(n, s[1:]): return True
     
     return False
 
-#print(generate(9, [0, 0, 1, 0, 10, 0, 8, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]))
+#print(generate(9, [0, 0, 1, 0, 0, 0, 7, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]))
